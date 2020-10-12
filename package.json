@@ -1,0 +1,22 @@
+{
+  "name": "restaurent-api",
+  "version": "1.0.0",
+  "description": "restaurent api using mongodb & nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node restapi.js",
+    "dev": "nodemon restapi.js"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "avinash",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2"
+  }
+}
