@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/',(req,res) => {
-    res.send(`<div><a href='http://localhost:${port}/location'>Location</a><br/><a href='http://localhost:${port}/mealtype'>MealType</a><br/><a href='http://localhost:${port}/cuisine'>Cuisine</a><br/><a href='http://localhost:${port}/restaurant'>Restaurant</a></div>`)
+    res.send(`<div><a href='https://edumot.herokuapp.com/location'>Location</a><br/><a href='https://edumot.herokuapp.com/mealtype'>MealType</a><br/><a href='https://edumot.herokuapp.com//cuisine'>Cuisine</a><br/><a href='https://edumot.herokuapp.com/restaurant'>Restaurant</a></div>`)
 })
 
 //City List
