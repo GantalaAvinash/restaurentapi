@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 8900;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb+srv://admin:mongo@123@cluster0-f8vmc.mongodb.net/edurekinternship?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://avinash:PZMLkKLQ4VQ4LcG@restaurent-api.b6sbj.mongodb.net/restaurent-api?retryWrites=true&w=majority";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;
@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/',(req,res) => {
-    res.send("<div><a href='http://localhost:8900/location'>Location</a><br/><a href='http://localhost:8900/mealtype'>MealType</a><br/><a href='http://localhost:8900/cuisine'>Cuisine</a><br/><a href='http://localhost:8900/restaurant'>Restaurant</a></div>")
-})
+    res.send("<div><a href='http://edumot.herokuapp.com/location'>Location</a><br/><a href='http://edumot.herokuapp.com/mealtype'>MealType</a><br/><a href='http://edumot.herokuapp.com/cuisine'>Cui<br/><a href='http://edumot.herokuapp.com/restaurant'>Restaurant</a></div>")
+})sine</a>
 
 //City List
 app.get('/location',(req,res) => {
@@ -26,7 +26,7 @@ app.get('/location',(req,res) => {
 
 //Meal Type
 app.get('/mealtype',(req,res) => {
-    db.collection('mealtype').find({}).toArray((err,result) =>{
+    db.collection('mealType').find({}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
