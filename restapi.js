@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb+srv://avinash:abhi2001@restaurent-api.b6sbj.mongodb.net/<restaurentapp>?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://avinash:abhi2001@restaurent-api.b6sbj.mongodb.net/restaurentapp?retryWrites=true&w=majority";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;
@@ -42,7 +42,7 @@ app.get('/cuisine',(req,res) => {
 })
 
 //Restaurant
-app.get('/restaurent',(req,res) => {
+app.get('/restaurant',(req,res) => {
     var query = {};
     if(req.query.city && req.query.mealtype){
         query={city:req.query.city,"type.mealtype":req.query.mealtype}
