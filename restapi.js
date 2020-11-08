@@ -1,9 +1,10 @@
+
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8900;
+const port = process.env.PORT;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb+srv://avinash:PZMLkKLQ4VQ4LcG@restaurent-api.b6sbj.mongodb.net/restaurent-api?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://avinash:abhi2001@restaurent-api.b6sbj.mongodb.net/<restaurentapp>?retryWrites=true&w=majority";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;
@@ -13,12 +14,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/',(req,res) => {
-    res.send("<div><a href='http://edumot.herokuapp.com/location'>Location</a><br/><a href='http://edumot.herokuapp.com/mealtype'>MealType</a><br/><a href='http://edumot.herokuapp.com/cuisine'>Cui<br/><a href='http://edumot.herokuapp.com/restaurant'>Restaurant</a></div>")
-})sine</a>
+    res.send(`<div><a href='https://edumot.herokuapp.com/location'>Location</a><br/><a href='https://edumot.herokuapp.com/mealtype'>MealType</a><br/><a href='https://edumot.herokuapp.com/cuisine'>Cuisine</a><br/><a href='https://edumot.herokuapp.com/restaurent'>Restaurent</a></div>`)
+})
 
 //City List
 app.get('/location',(req,res) => {
-    db.collection('city').find({}).toArray((err,result) => {
+    db.collection('location').find({}).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
@@ -26,7 +27,7 @@ app.get('/location',(req,res) => {
 
 //Meal Type
 app.get('/mealtype',(req,res) => {
-    db.collection('mealType').find({}).toArray((err,result) =>{
+    db.collection('mealtype').find({}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
@@ -41,7 +42,7 @@ app.get('/cuisine',(req,res) => {
 })
 
 //Restaurant
-app.get('/restaurant',(req,res) => {
+app.get('/restaurent',(req,res) => {
     var query = {};
     if(req.query.city && req.query.mealtype){
         query={city:req.query.city,"type.mealtype":req.query.mealtype}
@@ -58,7 +59,7 @@ app.get('/restaurant',(req,res) => {
     })
 })
 
-app.get('/restaurantDetails/:id',(req,res) => {
+app.get('/restaurentDetails/:id',(req,res) => {
     console.log(req.params.id)
     var query = {_id:req.params.id}
     db.collection('restaurent').find(query).toArray((err,result) =>{
@@ -119,7 +120,7 @@ app.post('/placeorder',(req,res) => {
 
 MongoClient.connect(mongoUrl,(err,client) => {
     if(err) console.log(err);
-    db = client.db('edurekinternship');
+    db = client.db('restaurentapp');
     app.listen(port,(err) => {
         if(err) throw err;
         console.log(`Server is running on port ${port}`)
