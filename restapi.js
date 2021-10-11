@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
-const mongoUrl = "mongodb+srv://avinash:abhi2001@restaurent-api.b6sbj.mongodb.net/restaurentapp?retryWrites=true&w=majority";
+const mongoUrl = "mongodb+srv://avinash:avinash@restaurent-api.b6sbj.mongodb.net/restaurentapp?retryWrites=true&w=majority";
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let db;
